@@ -1,12 +1,17 @@
 import os
 import winreg
-import vdf
-from colorama import Style, Fore
-from tqdm import tqdm
-import requests
+import zipfile
 
-print("DesktopMate Mod Installer")
+import requests
+import vdf
+from colorama import Fore, Style
+from tqdm import tqdm
+
+print(f"{Style.BRIGHT}Desktop Mate Mod Installer v1.0")
 print("2025, RestartB\n")
+
+print(f"Please ensure that Desktop Mate has been opened once before running the script, and that it is not currently running.{Style.RESET_ALL}")
+input("Press enter to continue...")
 
 # Get installer
 print("Detecting operating system...")
@@ -15,7 +20,7 @@ if os.name != "nt":
     print(f"{Fore.RED}Error: This script is only compatible with Windows.{Style.RESET_ALL}")
     exit(1)
 else:
-    print(f"{Fore.GREEN}Operating system: {Style.BRIGHT}Windows\n{Style.RESET_ALL}")
+    print(f"{Fore.GREEN}Operating system: {Style.BRIGHT}Windows{Style.RESET_ALL}\n")
 
 # Find Steam
 print("Detecting Steam...")
@@ -26,7 +31,7 @@ try:
         with winreg.OpenKey(hkey, r"Software\Valve\Steam") as steam_key:
             # Get Steam path
             steam_path = os.path.normpath(winreg.QueryValueEx(steam_key, "SteamPath")[0])
-            print(f"{Fore.GREEN}Steam installation found at: {Style.BRIGHT}{steam_path}\n{Style.RESET_ALL}")
+            print(f"{Fore.GREEN}Steam installation found at: {Style.BRIGHT}{steam_path}{Style.RESET_ALL}\n")
             
             # Close registry keys
             winreg.CloseKey(steam_key)
@@ -49,13 +54,10 @@ for library_folder in library["libraryfolders"]:
     
     # Check if Desktop Mate is in the current library
     if "3301060" in library_folder["apps"]:
-        mate_path = os.path.join(library_folder['path'], "common", "Desktop Mate")
-        
-        if os.path.exists(mate_path):
-            print(f"{Fore.GREEN}Found DesktopMate: {Style.BRIGHT}{mate_path}\n{Style.RESET_ALL}")
+        if os.path.exists(os.path.join(library_folder['path'], "steamapps", "common", "Desktop Mate")):
+            mate_path = os.path.join(library_folder['path'], "steamapps", "common", "Desktop Mate")
+            print(f"{Fore.GREEN}Found Desktop Mate: {Style.BRIGHT}{mate_path}{Style.RESET_ALL}\n")
             break
-        else:
-            mate_path = None
 
 if mate_path is None:
     print(f"{Fore.RED}Error: Could not find Desktop Mate installation.{Style.RESET_ALL}")
@@ -94,3 +96,39 @@ with open(os.path.join("mate-install-temp", "mod.zip"), "wb") as handle:
         handle.write(data)
 
 print(f"{Fore.GREEN}Downloaded!{Style.RESET_ALL}\n")
+
+print("Extracting files...")
+try:
+    # Extract MelonLoader
+    with zipfile.ZipFile(os.path.join("mate-install-temp", "melonloader.zip")) as zf:
+        zf.extractall(mate_path)
+
+    # Extract Mod
+    with zipfile.ZipFile(os.path.join("mate-install-temp", "mod.zip")) as zf:
+        zf.extractall(mate_path)
+
+    print(f"{Fore.GREEN}Files extracted!{Style.RESET_ALL}\n")
+except zipfile.BadZipFile:
+    print(f"{Fore.RED}Error: One or more zip files are corrupted{Style.RESET_ALL}")
+    exit(1)
+except Exception as e:
+    print(f"{Fore.RED}Error extracting files: {e}{Style.RESET_ALL}")
+    exit(1)
+
+# Clean up
+print("Cleaning up...")
+os.remove(os.path.join("mate-install-temp", "melonloader.zip"))
+os.remove(os.path.join("mate-install-temp", "mod.zip"))
+os.rmdir("mate-install-temp")
+print(f"{Fore.GREEN}Cleaned up!{Style.RESET_ALL}\n")
+
+# Done
+print(f"{Fore.GREEN}All done!{Style.RESET_ALL}")
+print("Press enter to run Desktop Mate (press open when prompted), or press CTRL+C / close the window to exit.\n")
+
+print(f"{Style.BRIGHT}** Note **{Style.RESET_ALL}")
+print("The first launch of Desktop Mate may take longer than usual, this is normal as the mod loader is injecting itself into Desktop Mate.")
+
+# Run Desktop Mate if user presses enter
+input("")
+os.system("start steam://rungameid/3301060")
