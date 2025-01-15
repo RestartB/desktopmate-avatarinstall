@@ -7,8 +7,9 @@ import vdf
 from colorama import Fore, Style
 from tqdm import tqdm
 
-print(f"{Style.BRIGHT}Desktop Mate Mod Installer v1.0")
-print("2025, RestartB\n")
+print(f"{Style.BRIGHT}Desktop Mate Avatar Loader Autoinstall v1.0")
+print("2025, RestartB")
+print("https://github.com/RestartB/desktopmate-avatarinstall\n")
 
 print(f"Please ensure that Desktop Mate has been opened once before running the script, and that it is not currently running.{Style.RESET_ALL}")
 input("Press enter to continue...")

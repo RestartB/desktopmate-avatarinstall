@@ -11,7 +11,7 @@ Found a bug? Want to add a feature? Simply make a pull request and I'll take a l
 ### Prebuilt EXE (easiest)
 Use a prebuilt .exe file, built by Github Actions and published in Github Releases. You do not need to install any Python versions for this; simply run the .exe file and follow the steps.
 
-[Download Now](https://github.com/restartb/desktopmate-autoinstall/releases/latest)
+[Download Now](https://github.com/restartb/desktopmate-avatarinstall/releases/latest)
 
 ### Manual
 You can optionally choose to run the Python script yourself for more transparency. Follow the instructions below to run this.
