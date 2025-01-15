@@ -24,6 +24,7 @@ jobs:
 
     - name: Build
       run: |
+        mkdir ./dist
         cp ./main.py ./dist/main.py
         cd ./dist && uv run --with pyinstaller pyinstaller main.py --onefile
         cp ./dist/main.exe autoinstall-windows.exe
