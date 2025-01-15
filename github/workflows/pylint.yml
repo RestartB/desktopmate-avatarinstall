@@ -1,0 +1,23 @@
+name: Pylint
+
+on:
+  push:
+    paths:
+      - '**.py'
+  workflow_dispatch:
+
+jobs:
+  lint:
+    runs-on: windows-latest
+    steps:
+    - uses: actions/checkout@v4
+    - name: Set up Python 3.13
+      uses: actions/setup-python@v5
+      with:
+        python-version: 3.13
+    - name: Install dependencies
+      run: |
+        pip install uv
+    - name: Analysing the code with pylint
+      run: |
+        uv run --with pylint pylint $(git ls-files '*.py') --errors-only

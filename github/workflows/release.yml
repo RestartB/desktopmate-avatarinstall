@@ -1,0 +1,42 @@
+name: Release Setup
+
+on:
+  workflow_dispatch:
+  release:
+    types: [created]
+
+jobs:
+  build-windows:
+    runs-on: windows-latest
+    name: Build for Windows
+    permissions: write-all
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: Set up Python 3.13
+      uses: actions/setup-python@v3
+      with:
+        python-version: "3.13"
+        
+    - name: Install dependencies
+      run: |
+        pip install uv
+
+    - name: Build
+      run: |
+        cp ./main.py ./dist/main.py
+        cd ./dist && uv run --with pyinstaller pyinstaller main.py --onefile
+        cp ./dist/main.exe autoinstall-windows.exe
+        
+    - name: Save output as artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: autoinstall-windows.exe
+        path: ./dist/autoinstall-windows.exe
+
+    - name: Upload binary to release
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        cd dist
+        gh release upload ${{ github.event.release.tag_name }} autoinstall-windows.exe
