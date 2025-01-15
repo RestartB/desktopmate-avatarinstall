@@ -1,5 +1,5 @@
 # Desktop Mate Avatar Loader Autoinstall
-Script / app that automatically installs MelonLoader and the Desktop Mate Avatar Loader mod.
+Script / app that automatically installs [MelonLoader](https://github.com/LavaGang/MelonLoader) and the [Desktop Mate Avatar Loader mod](https://github.com/YusufOzmen01/desktopmate-custom-avatar-loader).
 
 ## Contributing
 Found a bug? Make an issue and I'll take a look. Want to add a feature or submit a bug fix? Simply make a pull request! :3

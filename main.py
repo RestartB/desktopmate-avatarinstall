@@ -7,7 +7,7 @@ import vdf
 from colorama import Fore, Style
 from tqdm import tqdm
 
-print(f"{Style.BRIGHT}Desktop Mate Avatar Loader Autoinstall v1.0")
+print(f"{Style.BRIGHT}Desktop Mate Avatar Loader Autoinstall v1.0.0")
 print("2025, RestartB")
 print("https://github.com/RestartB/desktopmate-avatarinstall\n")
 
