@@ -1,5 +1,5 @@
 [project]
-name = "Desktop Mate Avatar Loader Autoinstall"
+name = "desktopmate-avatarinstall"
 version = "1.0.0"
 description = "Auto installer for Desktop Mate Avatar Loader mod"
 readme = "README.md"
