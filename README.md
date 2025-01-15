@@ -2,7 +2,7 @@
 Script / app that automatically installs MelonLoader and the Desktop Mate Avatar Loader mod.
 
 ## Contributing
-Found a bug? Want to add a feature? Simply make a pull request and I'll take a look. :3
+Found a bug? Make an issue and I'll take a look. Want to add a feature or submit a bug fix? Simply make a pull request! :3
 
 ## Usage
 > [!CAUTION]
