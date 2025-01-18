@@ -20,7 +20,7 @@ if ($PSVersionTable.PSVersion.Major -lt 6) {
 Write-Host -ForegroundColor Green (ToMarkdown "Powershell version: **$($PSVersionTable.PSVersion)** (legacy: $legacyPowershell)")
 Write-Host
 
-Write-Host (ToMarkdown "**Desktop Mate Avatar Loader Autoinstall v1.0.0 - Powershell**")
+Write-Host (ToMarkdown "**Desktop Mate Avatar Loader Autoinstall v1.1.0 - Powershell**")
 Write-Host (ToMarkdown "**2025, RestartB**")
 Write-Host (ToMarkdown "https://github.com/RestartB/desktopmate-avatarinstall")
 
