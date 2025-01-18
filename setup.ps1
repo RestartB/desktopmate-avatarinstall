@@ -12,4 +12,4 @@ Invoke-WebRequest -Uri "https://raw.githubusercontent.com/BartJolling/ps-steam-c
 
 # Done
 Write-Host "Done. Starting installer script...`n"
-& ./installer.ps1 -ExecutionPolicy Bypass
+& powershell -ExecutionPolicy ByPass -c "irm https://github.com/RestartB/desktopmate-avatarinstall/releases/latest/installer.ps1 | iex"
