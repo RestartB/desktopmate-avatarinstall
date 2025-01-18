@@ -1,7 +1,10 @@
 # Check if PSScriptRoot is defined, manually set if not
 if ($null -eq $PSScriptRoot) {
     $PSScriptRoot = Split-Path -Parent $MyInvocation.MyCommand.Definition
+} else {
+    Write-Host "PSScriptRoot is not null"
 }
+
 Write-Host "PSScriptRoot: $PSScriptRoot"
 
 Write-Host "`nDownloading Steam dependency..."
