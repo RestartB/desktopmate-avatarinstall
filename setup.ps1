@@ -1,4 +1,5 @@
 Write-Host "Downloading Steam dependency..."
+Write-Host $PSScriptRoot
 
 # Make temp folder if it doesn't exist
 $tempFolder = "$PSScriptRoot\installer-temp"
