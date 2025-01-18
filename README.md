@@ -12,7 +12,7 @@ Found a bug? Make an issue and I'll take a look. Want to add a feature or submit
 I provide a Powershell script and a Python based prebuilt EXE file. The Powershell script can be run with one command from the command line, the Python version requires you to download the .exe file.
 #### Powershell
 To run the script, use the following command:
-`powershell -ExecutionPolicy ByPass -c "irm https://github.com/RestartB/desktopmate-avatarinstall/releases/latest/setup.ps1 | iex"`
+`powershell -ExecutionPolicy ByPass -c "irm https://github.com/RestartB/desktopmate-avatarinstall/releases/latest/download/installer.ps1 | iex"`
 #### Python
 Use the following link to download the Python version of the installer. Once it's downloaded, you can run it like a normal exe file.\
 [Download Now](https://github.com/restartb/desktopmate-avatarinstall/releases/latest)
