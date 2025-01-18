@@ -6,6 +6,19 @@ on:
     types: [created]
 
 jobs:
+  upload-scripts:
+    runs-on: ubuntu-latest
+    name: Upload Powershell Scripts
+    permissions: write-all
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: Upload scripts
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        gh release upload ${{ github.event.release.tag_name }} setup.ps1 installer.ps1
+      
   build-windows:
     runs-on: windows-latest
     name: Build for Windows
