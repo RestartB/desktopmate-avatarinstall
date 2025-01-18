@@ -1,3 +1,4 @@
+$PSScriptRoot = (Get-Item .).FullName
 Write-Host "PSScriptRoot: $PSScriptRoot"
 
 Write-Host "`nDownloading Steam dependency..."
