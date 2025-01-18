@@ -1,5 +1,10 @@
-Write-Host "Downloading Steam dependency..."
-Write-Host $PSScriptRoot
+# Check if PSScriptRoot is defined, manually set if not
+if ($null -eq $PSScriptRoot) {
+    $PSScriptRoot = Split-Path -Parent $MyInvocation.MyCommand.Definition
+}
+Write-Host "PSScriptRoot: $PSScriptRoot"
+
+Write-Host "`nDownloading Steam dependency..."
 
 # Make temp folder if it doesn't exist
 $tempFolder = "$PSScriptRoot\installer-temp"
