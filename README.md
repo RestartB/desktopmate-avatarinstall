@@ -1,5 +1,5 @@
 # Desktop Mate Avatar Loader Autoinstall
-Script / app that automatically installs [MelonLoader](https://github.com/LavaGang/MelonLoader) and the [Desktop Mate Avatar Loader mod](https://github.com/YusufOzmen01/desktopmate-custom-avatar-loader).
+Script that automatically installs [MelonLoader](https://github.com/LavaGang/MelonLoader) and the [Desktop Mate Avatar Loader mod](https://github.com/YusufOzmen01/desktopmate-custom-avatar-loader).
 
 ## Contributing
 Found a bug? Make an issue and I'll take a look. Want to add a feature or submit a bug fix? Simply make a pull request! :3
@@ -8,9 +8,13 @@ Found a bug? Make an issue and I'll take a look. Want to add a feature or submit
 > [!CAUTION]
 > The autoinstall script only supports Windows 10 and Windows 11. Other versions of Windows and other operating systems (e.g. macOS, Linux) are not supported.
 
-### Prebuilt EXE (easiest)
-Use a prebuilt .exe file, built by Github Actions and published in Github Releases. You do not need to install any Python versions for this; simply run the .exe file and follow the steps.
-
+### Powershell / Python EXE (easiest)
+I provide a Powershell script and a Python based prebuilt EXE file. The Powershell script can be run with one command from the command line, the Python version requires you to download the .exe file.
+#### Powershell
+To run the script, use the following command:
+`powershell -ExecutionPolicy ByPass -c "irm https://github.com/RestartB/desktopmate-avatarinstall/releases/latest/installer.ps1 | iex"`
+#### Python
+Use the following link to download the Python version of the installer. Once it's downloaded, you can run it like a normal exe file.\
 [Download Now](https://github.com/restartb/desktopmate-avatarinstall/releases/latest)
 
 ### Manual
